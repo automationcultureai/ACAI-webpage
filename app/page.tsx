@@ -14,12 +14,10 @@ export default function Home() {
   if (!email) return;
   setLoading(true);
 
-  const formData = new FormData();
-  formData.append("email", email);
-
-  await fetch("https://getform.io/f/mcivvzgncnt", {
+  await fetch("https://formspree.io/f/mvzwleja", {
     method: "POST",
-    body: formData,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
   });
 
   setSubmitted(true);
