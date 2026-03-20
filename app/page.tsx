@@ -10,14 +10,19 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    // Replace with your actual submission logic (Resend, Mailchimp, Supabase, etc.)
-    await new Promise((res) => setTimeout(res, 1000));
-    setSubmitted(true);
-    setLoading(false);
-  };
+  e.preventDefault();
+  if (!email) return;
+  setLoading(true);
+
+  await fetch("https://getform.io/f/mcivvzgncnt", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
+  setSubmitted(true);
+  setLoading(false);
+};
 
   return (
     <main className="relative w-full h-screen overflow-hidden bg-black">
