@@ -51,7 +51,7 @@ export default function Home() {
         </h1>
 
         <p className="text-white/50 text-lg max-w-sm">
-          We automate the boring parts. <br /> You take the credit.
+          We automate the gruntwork. <br /> You take care of business.
         </p>
 
         {/* Waitlist form */}
